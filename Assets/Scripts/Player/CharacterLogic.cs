@@ -7,6 +7,7 @@ public class CharacterLogic : MonoBehaviour
     public float runSpeed = 8f;
     public float groundDamping = 20f;
     public float inAirDamping = 5f;
+    public float forcePush = 30f;
     public float jumpHeight = 3f;
     public float gravityModifier = 0.6f;
     public int maxJumps = 1;
@@ -19,33 +20,42 @@ public class CharacterLogic : MonoBehaviour
     float lastTimeDown = 0;
     int jumpsLeft = 0;
     float normalizedHorizontalSpeed = 0;
-    PlayerController playerController;
+    public PlayerController playerController;
     CharacterController2D characterController;
     Vector3 velocity;
     SpriteRenderer spriteRenderer;
     public Vector2 aimingDirection;
-    bool isPunching;
-    WaitForSeconds attackYield;
+    bool isPunching, hasBeenHit;
+    WaitForSeconds playerYield;
     public GameObject arm;
+    bool setUp;
     Vector2 facingDirection;
 
     void Start()
     {
-        playerController = PlayerController.CreateWithDefaultBindings();
         characterController = GetComponent<CharacterController2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        attackYield = new WaitForSeconds(Time.deltaTime);
+        playerYield = new WaitForSeconds(Time.deltaTime);
         characterController.onControllerCollidedEvent += onControllerCollider;
         characterController.onTriggerEnterEvent += onTriggerEnterEvent;
         characterController.onTriggerExitEvent += onTriggerExitEvent;
         aimingDirection.x = 1;
     }
 
+    public void InitPlayer(InControl.InputDevice device)
+    {
+        playerController = PlayerController.CreateWithDefaultBindings(device);
+        setUp = true;
+    }
+
     void Update()
     {
+        if (!setUp)
+            return;
         // grab our current _velocity to use as a base for all calculations
         velocity = characterController.velocity;
-
+        if (hasBeenHit)
+            return;
         if (characterController.isGrounded)
         {
             velocity.y = 0;
@@ -135,10 +145,12 @@ public class CharacterLogic : MonoBehaviour
         else {
             gravityModificator = 1;
         }
+        GravityAndMovement(descend);
+    }
 
+    void GravityAndMovement(bool descend)
+    {
         velocity.y += (gravity * gravityModificator) * Time.deltaTime;
-
-
         characterController.move(velocity * Time.deltaTime, descend);
     }
 
@@ -168,11 +180,30 @@ public class CharacterLogic : MonoBehaviour
         while (currentTime <= attackTime)
         {
             arm.transform.localPosition = Vector2.MoveTowards(arm.transform.localPosition, direction, attackSpeed * Time.deltaTime);
-            yield return attackYield;
+            yield return playerYield;
             currentTime += Time.deltaTime;
         }
         arm.transform.localPosition = Vector2.zero;
         isPunching = false;
+    }
+
+    public void Push(Vector2 Direction, float force)
+    {
+        if (hasBeenHit)
+            return;
+        hasBeenHit = true;
+        StartCoroutine(PushBack(Direction, force));
+    }
+
+    IEnumerator PushBack(Vector2 direction, float force)
+    {
+        while (force > 0)
+        {
+            velocity = Vector2.Lerp(velocity, direction * force, Time.deltaTime * forcePush);
+            GravityAndMovement(false);
+            yield return playerYield;
+        }
+        hasBeenHit = false;
     }
 
     #region Event Listeners
