@@ -44,7 +44,7 @@ public class CharacterLogic : MonoBehaviour
         characterController.onTriggerExitEvent += onTriggerExitEvent;
         aimingDirection.x = 1;
         arm.SetValues(transform);
-        spriteManager = GameObject.Instantiate(Resources.Load<SpriteManager>("Characters/ChibiDolly"));
+        spriteManager = SpriteState.instance.GetRandoChibi();
         spriteManager.transform.SetParent(transform);
     }
 

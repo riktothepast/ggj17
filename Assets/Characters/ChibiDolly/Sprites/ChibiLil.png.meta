@@ -1,0 +1,324 @@
+fileFormatVersion: 2
+guid: f60728579311f114d8713bb24a300907
+timeCreated: 1485040159
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Cb_FrontHair
+    21300002: Cb_BackHair
+    21300004: Cb_Mouth
+    21300006: Cb_Head
+    21300008: Cb_RightArm
+    21300010: Cb_RightHand
+    21300012: Cb_Dress
+    21300014: Cb_LeftLeg
+    21300016: Cb_RightLeg
+    21300018: Cb_LeftArm
+    21300020: Cb_LeftFoot
+    21300022: Cb_RightFoot
+    21300024: Cb_LeftHand
+    21300026: Cb_Nose
+    21300028: Cb_RightEye
+    21300030: Cb_LeftEye
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: -1
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  - buildTarget: WebGL
+    maxTextureSize: 2048
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Cb_FrontHair
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 400
+        width: 341
+        height: 358
+      alignment: 9
+      pivot: {x: 0.7272857, y: 0.8634768}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_BackHair
+      rect:
+        serializedVersion: 2
+        x: 838
+        y: 476
+        width: 190
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_Mouth
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 609
+        width: 83
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_Head
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 328
+        width: 244
+        height: 237
+      alignment: 9
+      pivot: {x: 0.5352936, y: 0.09122129}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_RightArm
+      rect:
+        serializedVersion: 2
+        x: 833
+        y: 346
+        width: 56
+        height: 36
+      alignment: 9
+      pivot: {x: 0.11728341, y: 0.7976676}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_RightHand
+      rect:
+        serializedVersion: 2
+        x: 952
+        y: 338
+        width: 92
+        height: 71
+      alignment: 9
+      pivot: {x: 0.16539997, y: 0.736491}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_Dress
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 48
+        width: 283
+        height: 213
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_LeftLeg
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 202
+        width: 27
+        height: 62
+      alignment: 9
+      pivot: {x: 0.4433006, y: 0.8333332}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_RightLeg
+      rect:
+        serializedVersion: 2
+        x: 983
+        y: 220
+        width: 35
+        height: 61
+      alignment: 9
+      pivot: {x: 0.25943604, y: 0.8387976}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_LeftArm
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 136
+        width: 63
+        height: 50
+      alignment: 9
+      pivot: {x: 0.81589204, y: 0.8520984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_LeftFoot
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 21
+        width: 96
+        height: 142
+      alignment: 9
+      pivot: {x: 0.7790635, y: 0.93122894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_RightFoot
+      rect:
+        serializedVersion: 2
+        x: 965
+        y: 19
+        width: 89
+        height: 149
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_LeftHand
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 34
+        width: 88
+        height: 80
+      alignment: 9
+      pivot: {x: 0.83052695, y: 0.83487636}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_Nose
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 647
+        width: 24
+        height: 29
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_RightEye
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 680
+        width: 52
+        height: 53
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Cb_LeftEye
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 668
+        width: 72
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
