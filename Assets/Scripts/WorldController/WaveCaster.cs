@@ -9,6 +9,7 @@ public class WaveCaster : MonoBehaviour
     public float frequency;
     private int radius = 200;
     private Rigidbody2D rb;
+    public LayerMask mask;
 
     void Start()
     {
@@ -19,7 +20,7 @@ public class WaveCaster : MonoBehaviour
     {
         Debug.Log("onMouseDown!!!!!");
         Vector3 center = rb.transform.position;
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius, mask);
         int i = 0;
         while (i < hitColliders.Length)
         {
@@ -32,10 +33,4 @@ public class WaveCaster : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Vector3 center = rb.transform.position;
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(center, radius);
-    }
 }

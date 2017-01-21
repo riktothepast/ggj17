@@ -88,11 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218243b7b369eef4aa02cfa02a8868cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD
-  thrust: 50
-=======
   thrust: 30
->>>>>>> 2bd1dbff0ef31befc759d41a590798d29d8358c2
 --- !u!212 &212868640498763726
 SpriteRenderer:
   m_ObjectHideFlags: 1
