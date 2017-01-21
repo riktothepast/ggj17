@@ -194,12 +194,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f2d3f8228e4ea4e934cf2975293a50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: -25
+  gravity: -50
   runSpeed: 20
   groundDamping: 20
   inAirDamping: 5
   forcePush: 100
-  jumpHeight: 6
+  jumpHeight: 8
   gravityModifier: 1
   maxJumps: 2
   descendTime: 0.5
@@ -207,9 +207,16 @@ MonoBehaviour:
   attackSpeed: 30
   attackDegradation: 250
   analogueDeadZone: 0.25
-  aimingDirection: {x: 1, y: 2.0485963e-13}
+  aimingDirection: {x: 1, y: 1e-45}
   arm: {fileID: 114370688877005854}
   spriteManager: {fileID: 0}
+  floorMask:
+    serializedVersion: 2
+    m_Bits: 256
+  maxWallCheckRays: 5
+  raysBegin: 2.5
+  wallCheckRayDistance: 1
+  rayDistance: 4
 --- !u!212 &212170973506948352
 SpriteRenderer:
   m_ObjectHideFlags: 1
