@@ -17,7 +17,6 @@ public class Inertia : MonoBehaviour {
 
         if (currentPosition.x != initialPosition.x || currentPosition.y != initialPosition.y)
         {
-            Debug.Log("Object outside of its original position!");
             rb.AddForce((initialPosition - currentPosition) * thrust);
         } 
     }
