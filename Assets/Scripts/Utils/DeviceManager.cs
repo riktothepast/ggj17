@@ -6,7 +6,7 @@ public class DeviceManager : MonoBehaviour {
     public GameObject playerPrefab;
     public List<CharacterLogic> players;
 
-	void Awake () {
+	public void StartPlayers () {
         players = new List<CharacterLogic>();
         for (int x = 0; x < InputManager.Devices.Count; x++)
         {

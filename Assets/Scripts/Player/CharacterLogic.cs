@@ -241,4 +241,10 @@ public class CharacterLogic : MonoBehaviour
     }
 
     #endregion
+
+    void OnBecameInvisible()
+    {
+        Debug.Log("Dolly died");
+        Destroy(this.gameObject);
+    }
 }
