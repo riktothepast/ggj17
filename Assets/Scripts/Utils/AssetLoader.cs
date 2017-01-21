@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class AssetLoader : MonoBehaviour
 {
+    public float scale;
     public string assetsFile;
     public List<Transform> elements = new List<Transform>();
 
@@ -20,7 +21,7 @@ public class AssetLoader : MonoBehaviour
                 int index;
                 if (int.TryParse(levelMatrix[y][x], out index))
                 {
-                    Transform go = Instantiate(elements[index], transform.position + new Vector3(x, -y, 0), Quaternion.identity);
+                    Transform go = Instantiate(elements[index], transform.position + new Vector3(x, -y, 0) * scale, Quaternion.identity);
                     go.parent = this.GetComponent<Transform>();
                 }
             }
