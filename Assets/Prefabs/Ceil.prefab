@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 218243b7b369eef4aa02cfa02a8868cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrust: 0
+  thrust: 80
 --- !u!212 &212868640498763726
 SpriteRenderer:
   m_ObjectHideFlags: 1

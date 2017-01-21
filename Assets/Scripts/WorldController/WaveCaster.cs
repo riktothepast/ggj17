@@ -2,16 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveCaster : MonoBehaviour {
-    private int radius = 100;
+public class WaveCaster : MonoBehaviour
+{
     public float thrust;
+    public float amplitude;
+    public float frequency;
+    private int radius = 200;
     private Rigidbody2D rb;
 
-    void Start () {
+    void Start()
+    {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    void OnMouseDown() {
+    void OnMouseDown()
+    {
         Debug.Log("onMouseDown!!!!!");
         Vector3 center = rb.transform.position;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius);
@@ -22,6 +27,7 @@ public class WaveCaster : MonoBehaviour {
             i++;
             Vector3 magnitude = (hit.transform.position - center).normalized;
             magnitude.x = 0;
+            magnitude.y = amplitude * Mathf.Cos(magnitude.y * frequency);
             hit.GetComponent<Rigidbody2D>().AddForce(magnitude * thrust, ForceMode2D.Impulse);
         }
     }
