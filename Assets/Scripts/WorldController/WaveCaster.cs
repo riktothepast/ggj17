@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WaveCaster : MonoBehaviour {
-    private int radius = 5;
-    public float thrust = 5f;
+    private int radius = 100;
+    public float thrust;
     private Rigidbody2D rb;
 
     void Start () {
@@ -19,13 +19,10 @@ public class WaveCaster : MonoBehaviour {
         while (i < hitColliders.Length)
         {
             Collider2D hit = hitColliders[i];
-            // float distance = Vector2.Distance(center, hit.transform.position);
             i++;
-            // Debug.Log("Hit something!");
-            // Debug.Log(distance);
-            hit.GetComponent<Rigidbody2D>().AddForce((hit.transform.position - center) /* * distance */ * thrust, ForceMode2D.Impulse);
-            // hit.GetComponent<Rigidbody2D>().AddForce((hit.transform.position - center) /* * distance */ * thrust, ForceMode2D.Impulse);
-
+            Vector3 magnitude = (hit.transform.position - center).normalized;
+            magnitude.x = 0;
+            hit.GetComponent<Rigidbody2D>().AddForce(magnitude * thrust, ForceMode2D.Impulse);
         }
     }
 
