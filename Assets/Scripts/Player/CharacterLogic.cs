@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Characters;
 
 public class CharacterLogic : MonoBehaviour
 {
@@ -31,6 +32,7 @@ public class CharacterLogic : MonoBehaviour
     public PunchController arm;
     bool setUp;
     Vector2 facingDirection;
+    public SpriteManager spriteManager;
 
     void Start()
     {
@@ -42,6 +44,8 @@ public class CharacterLogic : MonoBehaviour
         characterController.onTriggerExitEvent += onTriggerExitEvent;
         aimingDirection.x = 1;
         arm.SetValues(transform);
+        spriteManager = GameObject.Instantiate(Resources.Load<SpriteManager>("Characters/ChibiDolly"));
+        spriteManager.transform.SetParent(transform);
     }
 
     public void InitPlayer(InControl.InputDevice device)
@@ -60,6 +64,7 @@ public class CharacterLogic : MonoBehaviour
             return;
         if (characterController.isGrounded)
         {
+            spriteManager.Land();
             velocity.y = 0;
             jumpsLeft = 0;
             jump = false;
@@ -123,7 +128,7 @@ public class CharacterLogic : MonoBehaviour
             normalizedHorizontalSpeed = 1;
                 aimingDirection.x = 1;
         }
-
+        spriteManager.SetRunSpeed(normalizedHorizontalSpeed, runSpeed, characterController.isGrounded);
 
         if (playerController.RightBumper.WasReleased)
         {
@@ -143,6 +148,7 @@ public class CharacterLogic : MonoBehaviour
         if (playerController.Action1.IsPressed && velocity.y > 0 && jump)
         {
             gravityModificator = gravityModifier;
+            spriteManager.PlayJump();
         }
         else {
             gravityModificator = 1;
