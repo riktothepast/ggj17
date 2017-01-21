@@ -9,6 +9,8 @@ public class AssetLoader : MonoBehaviour
 {
     public float scale;
     public string assetsFile;
+    public List<Vector3> dollies; 
+
     public List<Transform> elements = new List<Transform>();
 
     void Start()
@@ -18,11 +20,19 @@ public class AssetLoader : MonoBehaviour
         {
             for (int x = 0; x < levelMatrix[y].Length; x++)
             {
-                int index;
-                if (int.TryParse(levelMatrix[y][x], out index))
+                Vector3 position = transform.position + new Vector3(x, -y, 0) * scale;
+                if (levelMatrix[y][x] == "d")  // dolly position
                 {
-                    Transform go = Instantiate(elements[index], transform.position + new Vector3(x, -y, 0) * scale, Quaternion.identity);
-                    go.parent = this.GetComponent<Transform>();
+                    dollies.Add(position);
+                }
+                else
+                {
+                    int index;
+                    if (int.TryParse(levelMatrix[y][x], out index))
+                    {
+                        Transform go = Instantiate(elements[index], position, Quaternion.identity);
+                        go.parent = this.GetComponent<Transform>();
+                    }
                 }
             }
         }
