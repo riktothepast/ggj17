@@ -55,3 +55,6 @@ ehthumbs.db
 .Trashes
 
 .db
+.vs
+*.meta
+*.asset
