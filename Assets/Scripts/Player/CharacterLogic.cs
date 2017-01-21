@@ -14,6 +14,7 @@ public class CharacterLogic : MonoBehaviour
     public float descendTime = 0.5f;
     public float attackTime = 0.25f;
     public float attackSpeed = 2f;
+    public float attackDegradation = 100f;
     public float analogueDeadZone = 0.25f;
     bool jump;
     float gravityModificator = 1;
@@ -27,7 +28,7 @@ public class CharacterLogic : MonoBehaviour
     public Vector2 aimingDirection;
     bool isPunching, hasBeenHit;
     WaitForSeconds playerYield;
-    public GameObject arm;
+    public PunchController arm;
     bool setUp;
     Vector2 facingDirection;
 
@@ -40,6 +41,7 @@ public class CharacterLogic : MonoBehaviour
         characterController.onTriggerEnterEvent += onTriggerEnterEvent;
         characterController.onTriggerExitEvent += onTriggerExitEvent;
         aimingDirection.x = 1;
+        arm.SetValues(transform);
     }
 
     public void InitPlayer(InControl.InputDevice device)
@@ -180,6 +182,7 @@ public class CharacterLogic : MonoBehaviour
         while (currentTime <= attackTime)
         {
             arm.transform.localPosition = Vector2.MoveTowards(arm.transform.localPosition, direction, attackSpeed * Time.deltaTime);
+            arm.SetCurrentValues(direction, forcePush);
             yield return playerYield;
             currentTime += Time.deltaTime;
         }
@@ -199,8 +202,10 @@ public class CharacterLogic : MonoBehaviour
     {
         while (force > 0)
         {
-            velocity = Vector2.Lerp(velocity, direction * force, Time.deltaTime * forcePush);
+            velocity = characterController.velocity;
+            velocity = Vector2.MoveTowards(velocity, direction * force, Time.deltaTime * attackDegradation);
             GravityAndMovement(false);
+            force -= Time.deltaTime * attackDegradation;
             yield return playerYield;
         }
         hasBeenHit = false;
