@@ -245,12 +245,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1083949584}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f9311f18e6b04645a11c32f98ad48f9, type: 3}
+  m_Script: {fileID: 11500000, guid: 36b54386e07c8b54c9e531a15194d4d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   assetsFile: ./level1.txt
   elements:
-  - {fileID: 4188567984015642, guid: 551707cefb5e25a4d966c5acce2ccb8a, type: 2}
+  - {fileID: 4188567984015642, guid: 5f7f3363a42ea824297081c0928b311e, type: 2}
 --- !u!4 &1083949586
 Transform:
   m_ObjectHideFlags: 0
