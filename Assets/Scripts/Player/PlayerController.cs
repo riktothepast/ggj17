@@ -18,25 +18,25 @@ public class PlayerController : PlayerActionSet
     public PlayerTwoAxisAction Move;
 
     public PlayerController()
-		{
-            Action1 = CreatePlayerAction("Action1");
-            Action2 = CreatePlayerAction("Action2");
-            Action3 = CreatePlayerAction("Action3");
-            Action4 = CreatePlayerAction("Action4");
-            RightBumper = CreatePlayerAction("RightBumper");
-            LeftBumper = CreatePlayerAction("LeftBumper");
-            Start = CreatePlayerAction("Start");
-			Left = CreatePlayerAction( "Move Left" );
-			Right = CreatePlayerAction( "Move Right" );
-			Up = CreatePlayerAction( "Move Up" );
-			Down = CreatePlayerAction( "Move Down" );
-			Move = CreateTwoAxisPlayerAction( Left, Right, Down, Up );
-		}
+    {
+        Action1 = CreatePlayerAction("Action1");
+        Action2 = CreatePlayerAction("Action2");
+        Action3 = CreatePlayerAction("Action3");
+        Action4 = CreatePlayerAction("Action4");
+        RightBumper = CreatePlayerAction("RightBumper");
+        LeftBumper = CreatePlayerAction("LeftBumper");
+        Start = CreatePlayerAction("Start");
+		Left = CreatePlayerAction( "Move Left" );
+		Right = CreatePlayerAction( "Move Right" );
+		Up = CreatePlayerAction( "Move Up" );
+		Down = CreatePlayerAction( "Move Down" );
+		Move = CreateTwoAxisPlayerAction( Left, Right, Down, Up );
+	}
 
-    public static PlayerController CreateWithDefaultBindings()
+    public static PlayerController CreateWithDefaultBindings(InputDevice device)
     {
         var playerController = new PlayerController();
-
+        playerController.Device = device;
         playerController.Action1.AddDefaultBinding(Key.S);
         playerController.Action1.AddDefaultBinding(InputControlType.Action1);
 
