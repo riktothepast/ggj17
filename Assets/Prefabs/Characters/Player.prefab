@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4068684389250444}
   - component: {fileID: 212635096355838826}
   - component: {fileID: 58881914985087802}
+  - component: {fileID: 114370688877005854}
   m_Layer: 9
   m_Name: Punch
   m_TagString: Untagged
@@ -123,6 +124,17 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
+--- !u!114 &114370688877005854
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1575013684622948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4af32f43edf13ee4a8d0187790f1c99c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114745888140668214
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,16 +198,17 @@ MonoBehaviour:
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 5
-  forcePush: 30
+  forcePush: 25
   jumpHeight: 3
   gravityModifier: 1
   maxJumps: 1
   descendTime: 0.5
-  attackTime: 0.15
+  attackTime: 0.1
   attackSpeed: 10
+  attackDegradation: 100
   analogueDeadZone: 0.25
   aimingDirection: {x: 0, y: 0}
-  arm: {fileID: 1575013684622948}
+  arm: {fileID: 114370688877005854}
 --- !u!212 &212170973506948352
 SpriteRenderer:
   m_ObjectHideFlags: 1
