@@ -11,6 +11,8 @@ public class CharacterLogic : MonoBehaviour
     public float gravityModifier = 0.6f;
     public int maxJumps = 1;
     public float descendTime = 0.5f;
+    public float attackTime = 0.25f;
+    public float attackSpeed = 2f;
     public float analogueDeadZone = 0.25f;
     bool jump;
     float gravityModificator = 1;
@@ -22,14 +24,21 @@ public class CharacterLogic : MonoBehaviour
     Vector3 velocity;
     SpriteRenderer spriteRenderer;
     public Vector2 aimingDirection;
+    bool isPunching;
+    WaitForSeconds attackYield;
+    public GameObject arm;
+    Vector2 facingDirection;
+
     void Start()
     {
         playerController = PlayerController.CreateWithDefaultBindings();
         characterController = GetComponent<CharacterController2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        attackYield = new WaitForSeconds(Time.deltaTime);
         characterController.onControllerCollidedEvent += onControllerCollider;
         characterController.onTriggerEnterEvent += onTriggerEnterEvent;
         characterController.onTriggerExitEvent += onTriggerExitEvent;
+        aimingDirection.x = 1;
     }
 
     void Update()
@@ -46,7 +55,7 @@ public class CharacterLogic : MonoBehaviour
 
         if (playerController.Action3.IsPressed)
         {
-            
+            Punch();
         }
 
         if (playerController.Action1.WasPressed)
@@ -71,7 +80,6 @@ public class CharacterLogic : MonoBehaviour
                 descend = true;
             }
         }
-        aimingDirection.x = -transform.localScale.x;
         // Control vertical aim of weapon
         if ((playerController.Move.Up.IsPressed || playerController.Move.Down.IsPressed) && Mathf.Abs(playerController.Move.Y) > analogueDeadZone)
         {
@@ -96,15 +104,11 @@ public class CharacterLogic : MonoBehaviour
         if (playerController.Move.Left.IsPressed && Mathf.Abs(playerController.Move.X) > analogueDeadZone)
         {
             normalizedHorizontalSpeed = -1;
-            transform.localScale = new Vector3(1, 1, 1);
-            if(aimingDirection.y != 0 && characterController.isGrounded)
                 aimingDirection.x = -1;
         }
         if (playerController.Move.Right.IsPressed && Mathf.Abs(playerController.Move.X) > analogueDeadZone)
         {
             normalizedHorizontalSpeed = 1;
-            transform.localScale = new Vector3(-1, 1, 1);
-            if (aimingDirection.y != 0 && characterController.isGrounded)
                 aimingDirection.x = 1;
         }
 
@@ -146,6 +150,29 @@ public class CharacterLogic : MonoBehaviour
             jumpsLeft++;
             jump = true;
         }
+    }
+
+    void Punch()
+    {
+        if (!isPunching)
+        {
+            StartCoroutine(PunchLogic());
+        }
+    }
+
+    IEnumerator PunchLogic()
+    {
+        isPunching = true;
+        float currentTime = 0f;
+        Vector2 direction = aimingDirection.normalized;
+        while (currentTime <= attackTime)
+        {
+            arm.transform.localPosition = Vector2.MoveTowards(arm.transform.localPosition, direction, attackSpeed * Time.deltaTime);
+            yield return attackYield;
+            currentTime += Time.deltaTime;
+        }
+        arm.transform.localPosition = Vector2.zero;
+        isPunching = false;
     }
 
     #region Event Listeners
