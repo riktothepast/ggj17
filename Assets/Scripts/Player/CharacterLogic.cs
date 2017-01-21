@@ -33,6 +33,7 @@ public class CharacterLogic : MonoBehaviour
     bool setUp;
     Vector2 facingDirection;
     public SpriteManager spriteManager;
+    PowerStriker powerStriker;
 
     void Start()
     {
@@ -46,6 +47,7 @@ public class CharacterLogic : MonoBehaviour
         arm.SetValues(transform);
         spriteManager = SpriteState.instance.GetRandoChibi();
         spriteManager.transform.SetParent(transform);
+        powerStriker = spriteManager.GetComponent<PowerStriker>();
     }
 
     public void InitPlayer(InControl.InputDevice device)
@@ -187,12 +189,14 @@ public class CharacterLogic : MonoBehaviour
         Vector2 direction = aimingDirection.normalized;
         while (currentTime <= attackTime)
         {
-            arm.transform.localPosition = Vector2.MoveTowards(arm.transform.localPosition, direction, attackSpeed * Time.deltaTime);
+            arm.transform.localPosition = (Vector2)arm.transform.localPosition + (direction * attackSpeed * Time.deltaTime);
             arm.SetCurrentValues(direction, forcePush);
+            powerStriker.HitPosition(arm.transform.position);
             yield return playerYield;
             currentTime += Time.deltaTime;
         }
         arm.transform.localPosition = Vector2.zero;
+        powerStriker.ResetPosition();
         isPunching = false;
     }
 
@@ -201,6 +205,7 @@ public class CharacterLogic : MonoBehaviour
         if (hasBeenHit)
             return;
         hasBeenHit = true;
+        spriteManager.ChangeColor(Color.red);
         StartCoroutine(PushBack(Direction, force));
     }
 
@@ -214,6 +219,7 @@ public class CharacterLogic : MonoBehaviour
             force -= Time.deltaTime * attackDegradation;
             yield return playerYield;
         }
+        spriteManager.ChangeColor(Color.white);
         hasBeenHit = false;
     }
 
@@ -235,4 +241,10 @@ public class CharacterLogic : MonoBehaviour
     }
 
     #endregion
+
+    void OnBecameInvisible()
+    {
+        Debug.Log("Dolly died");
+        Destroy(this.gameObject);
+    }
 }

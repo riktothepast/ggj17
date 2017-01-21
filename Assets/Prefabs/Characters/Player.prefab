@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 114839273707640088}
   m_Layer: 9
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
 --- !u!61 &61436189615843454
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -119,11 +119,11 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 5}
 --- !u!114 &114370688877005854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -179,8 +179,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  totalHorizontalRays: 8
-  totalVerticalRays: 4
+  totalHorizontalRays: 4
+  totalVerticalRays: 8
   createTriggerHelperGameObject: 0
   triggerHelperBoxColliderScale: 0.95
 --- !u!114 &114839273707640088
@@ -195,20 +195,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: -25
-  runSpeed: 8
+  runSpeed: 20
   groundDamping: 20
   inAirDamping: 5
-  forcePush: 25
-  jumpHeight: 3
+  forcePush: 100
+  jumpHeight: 6
   gravityModifier: 1
-  maxJumps: 1
+  maxJumps: 2
   descendTime: 0.5
   attackTime: 0.1
-  attackSpeed: 10
-  attackDegradation: 100
+  attackSpeed: 30
+  attackDegradation: 250
   analogueDeadZone: 0.25
-  aimingDirection: {x: 0, y: 0}
+  aimingDirection: {x: 1, y: 2.0485963e-13}
   arm: {fileID: 114370688877005854}
+  spriteManager: {fileID: 0}
 --- !u!212 &212170973506948352
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -241,7 +242,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3bd00afaf33a4fc43b5a25a60b66ff82, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!212 &212635096355838826
