@@ -109,7 +109,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.25
+  m_Radius: 0.5
 --- !u!61 &61436189615843454
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -123,7 +123,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 5}
 --- !u!114 &114370688877005854
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -198,24 +198,25 @@ MonoBehaviour:
   runSpeed: 8
   groundDamping: 20
   inAirDamping: 5
-  forcePush: 25
-  jumpHeight: 3
+  forcePush: 100
+  jumpHeight: 6
   gravityModifier: 1
-  maxJumps: 1
+  maxJumps: 2
   descendTime: 0.5
   attackTime: 0.1
-  attackSpeed: 10
-  attackDegradation: 100
+  attackSpeed: 30
+  attackDegradation: 250
   analogueDeadZone: 0.25
-  aimingDirection: {x: 0, y: 0}
+  aimingDirection: {x: 1, y: 2.0485963e-13}
   arm: {fileID: 114370688877005854}
+  spriteManager: {fileID: 0}
 --- !u!212 &212170973506948352
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1716249695930964}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_MotionVectors: 1

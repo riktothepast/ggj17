@@ -11,7 +11,7 @@ namespace Characters
         private Animator animator;
 
         // Use this for initialization
-        private void Start()
+        private void Awake()
         {
             animator = GetComponent<Animator>();
             bodyParts = new List<SpriteRenderer>(GetComponentsInChildren<SpriteRenderer>());
