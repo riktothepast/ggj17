@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ParticlePooler : Singleton<ParticlePooler> {
     [SerializeField]
-    private ParticleSystem lava;
+    private ParticleSystem lava, outOfScreen;
 
     protected override void Awake()
     {
@@ -15,6 +15,12 @@ public class ParticlePooler : Singleton<ParticlePooler> {
     {
         lava.transform.position = position;
         lava.Play();
+    }
+
+    public void CreateOutOfScreen(Vector2 position)
+    {
+        outOfScreen.transform.position = position;
+        outOfScreen.Play();
     }
 
     IEnumerator Recycle(ParticleSystem obj, float delayTime)
