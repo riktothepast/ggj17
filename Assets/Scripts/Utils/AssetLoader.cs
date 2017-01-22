@@ -1,16 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using UnityEngine;
-
-
 
 public class AssetLoader : MonoBehaviour
 {
     public float scale;
     public string assetsFile;
-    public List<Vector3> dollies; 
-
+    public List<Vector3> dollies;
+    public Vector2 mapSize;
     public List<Transform> elements = new List<Transform>();
 
     void Start()
@@ -24,8 +21,10 @@ public class AssetLoader : MonoBehaviour
                 if (levelMatrix[y][x] == "d")  // dolly position
                 {
                     dollies.Add(position);
-                }
-                else
+                } else if (levelMatrix[y][x] == "e")
+                {
+                    mapSize = position;
+                } else
                 {
                     int index;
                     if (int.TryParse(levelMatrix[y][x], out index))
@@ -36,6 +35,7 @@ public class AssetLoader : MonoBehaviour
                 }
             }
         }
+        Camera.main.GetComponent<CameraMovement>().SetMapSize(mapSize);
     }
 
     private string[][] readFile(string file)
@@ -43,7 +43,6 @@ public class AssetLoader : MonoBehaviour
         string text = System.IO.File.ReadAllText(file);
         string[] lines = Regex.Split(text, "\r\n");
         int rows = lines.Length;
-
         string[][] levelBase = new string[rows][];
         for (int i = 0; i < lines.Length; i++)
         {

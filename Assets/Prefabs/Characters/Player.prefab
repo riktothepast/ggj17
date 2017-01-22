@@ -216,7 +216,7 @@ MonoBehaviour:
   maxWallCheckRays: 5
   raysBegin: 2.5
   wallCheckRayDistance: 1
-  rayDistance: 4
+  rayDistance: 3
 --- !u!212 &212170973506948352
 SpriteRenderer:
   m_ObjectHideFlags: 1
