@@ -204,8 +204,13 @@ public class CharacterLogic : MonoBehaviour
             yield return playerYield;
             currentTime += Time.deltaTime;
         }
-        arm.transform.localPosition = Vector2.zero;
         arm.GetComponent<Collider2D>().enabled = false;
+        while (arm.transform.localPosition != Vector3.zero)
+        {
+            arm.transform.localPosition = Vector2.MoveTowards(arm.transform.localPosition, Vector2.zero, attackSpeed * 0.5f* Time.deltaTime);
+            powerStriker.HitPosition(arm.transform.position);
+            yield return playerYield;
+        }
         powerStriker.ResetPosition();
         isPunching = false;
     }
