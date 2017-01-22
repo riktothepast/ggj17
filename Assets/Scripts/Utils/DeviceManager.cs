@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class DeviceManager : MonoBehaviour {
     public GameObject playerPrefab;
     public List<CharacterLogic> players;
+    public AssetLoader assetLoader;
 
 	public void StartPlayers () {
         players = new List<CharacterLogic>();
@@ -36,9 +37,16 @@ public class DeviceManager : MonoBehaviour {
         CreateNewPlayer(device);
     }
 
+    int dolliPosition = 0;
+
     void CreateNewPlayer(InputDevice device)
     {
-        CharacterLogic player = Instantiate(playerPrefab).GetComponent<CharacterLogic>();
+        if (dolliPosition > assetLoader.dollies.Count - 1)
+            dolliPosition = 0;
+        Vector2 position = assetLoader.dollies[dolliPosition];
+        dolliPosition++;
+        Debug.Log(position);
+        CharacterLogic player = Instantiate(playerPrefab, position, Quaternion.identity).GetComponent<CharacterLogic>();
         player.InitPlayer(device);
         players.Add(player);
     }
