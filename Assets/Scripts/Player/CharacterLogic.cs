@@ -54,6 +54,7 @@ public class CharacterLogic : MonoBehaviour
         spriteManager = SpriteState.instance.GetRandoChibi();
         spriteManager.transform.SetParent(transform);
         powerStriker = spriteManager.GetComponent<PowerStriker>();
+        spriteManager.transform.localPosition = Vector2.zero;
     }
 
     public void InitPlayer(InControl.InputDevice device)

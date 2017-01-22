@@ -212,6 +212,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 1716249695930964, guid: bcd83b5a5d14b0646a18db4c49c3a183,
     type: 2}
   players: []
+  assetLoader: {fileID: 1050693153}
 --- !u!4 &735934885
 Transform:
   m_ObjectHideFlags: 0
