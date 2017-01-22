@@ -18,13 +18,17 @@ public class LinearWaveCaster : MonoBehaviour
     void Update()
     {
         lookDirection.y += 2 * Time.deltaTime * -1;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, lookDirection, 300);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, lookDirection, 300, mask);
         Debug.DrawRay(transform.position, lookDirection * 100, Color.red);
 
         if (hit.collider != null)
         {
             Debug.Log("HIT SOMETHING");
-            hit.collider.GetComponent<Rigidbody2D>().AddForce(lookDirection * thrust, ForceMode2D.Force);
+            Rigidbody2D rbody = hit.collider.GetComponent<Rigidbody2D>();
+            if (rbody)
+            {
+                rbody.AddForce(lookDirection * thrust, ForceMode2D.Force);
+            }
         }
 
         Vector3 screenPoint = Camera.main.WorldToViewportPoint(transform.position);
