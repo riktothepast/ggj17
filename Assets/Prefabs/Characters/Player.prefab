@@ -204,7 +204,7 @@ MonoBehaviour:
   maxJumps: 2
   descendTime: 0.5
   attackTime: 0.1
-  attackSpeed: 30
+  attackSpeed: 50
   attackDegradation: 250
   analogueDeadZone: 0.25
   aimingDirection: {x: 1, y: 1}

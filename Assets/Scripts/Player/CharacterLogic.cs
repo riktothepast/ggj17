@@ -184,7 +184,7 @@ public class CharacterLogic : MonoBehaviour
 
     void Punch()
     {
-        if (!isPunching)
+        if (!isPunching && !hasBeenHit)
         {
             StartCoroutine(PunchLogic());
         }
