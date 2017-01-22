@@ -254,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scale: 5
   assetsFile: ./level1.txt
+  dollies: []
   elements:
   - {fileID: 4188567984015642, guid: 5f7f3363a42ea824297081c0928b311e, type: 2}
   - {fileID: 4188567984015642, guid: b7857199c0ed4c44fa802a52df545fa7, type: 2}

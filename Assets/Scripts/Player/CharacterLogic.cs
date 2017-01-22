@@ -51,7 +51,7 @@ public class CharacterLogic : MonoBehaviour
         characterController.onTriggerExitEvent += onTriggerExitEvent;
         aimingDirection.x = 1;
         arm.SetValues(transform);
-        spriteManager = GameObject.Instantiate(Resources.Load<SpriteManager>("Characters/ChibiDolly"));
+        spriteManager = SpriteState.instance.GetRandoChibi();
         spriteManager.transform.SetParent(transform);
         powerStriker = spriteManager.GetComponent<PowerStriker>();
     }
@@ -192,6 +192,7 @@ public class CharacterLogic : MonoBehaviour
     IEnumerator PunchLogic()
     {
         isPunching = true;
+        arm.GetComponent<Collider2D>().enabled = true;
         float currentTime = 0f;
         Vector2 direction = aimingDirection.normalized;
         while (currentTime <= attackTime)
@@ -203,6 +204,7 @@ public class CharacterLogic : MonoBehaviour
             currentTime += Time.deltaTime;
         }
         arm.transform.localPosition = Vector2.zero;
+        arm.GetComponent<Collider2D>().enabled = false;
         powerStriker.ResetPosition();
         isPunching = false;
     }
@@ -222,6 +224,7 @@ public class CharacterLogic : MonoBehaviour
         {
             velocity = characterController.velocity;
             velocity = Vector2.MoveTowards(velocity, direction * force, Time.deltaTime * attackDegradation);
+            CastBottomWalls();
             GravityAndMovement(false);
             force -= Time.deltaTime * attackDegradation;
             yield return playerYield;

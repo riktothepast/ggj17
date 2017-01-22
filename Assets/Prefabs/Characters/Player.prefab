@@ -147,14 +147,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   usePhysicsForMovement: 0
-  _skinWidth: 0.02
+  _skinWidth: 0.3
   platformMask:
     serializedVersion: 2
     m_Bits: 256
   oneWayPlatformMask:
     serializedVersion: 2
     m_Bits: 0
-  slopeLimit: 30
+  slopeLimit: 90
   slopeSpeedMultiplier:
     serializedVersion: 2
     m_Curve:
@@ -179,7 +179,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  totalHorizontalRays: 4
+  totalHorizontalRays: 8
   totalVerticalRays: 8
   createTriggerHelperGameObject: 0
   triggerHelperBoxColliderScale: 0.95
@@ -207,7 +207,7 @@ MonoBehaviour:
   attackSpeed: 30
   attackDegradation: 250
   analogueDeadZone: 0.25
-  aimingDirection: {x: 1, y: 1e-45}
+  aimingDirection: {x: 1, y: 1}
   arm: {fileID: 114370688877005854}
   spriteManager: {fileID: 0}
   floorMask:
