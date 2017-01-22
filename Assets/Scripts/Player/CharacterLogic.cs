@@ -266,7 +266,10 @@ public class CharacterLogic : MonoBehaviour
 
     public void onControllerCollider(RaycastHit2D hit)
     {
-
+        if (hit.collider.CompareTag("InstaDeath"))
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void onTriggerEnterEvent(Collider2D col)
