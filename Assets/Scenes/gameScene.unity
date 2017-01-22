@@ -91,6 +91,48 @@ NavMeshSettings:
     cellSize: 0.16666667
     accuratePlacement: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &31326696
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 20.780945
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -17.810179
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4859631746162714, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 24996f61f6b77ed4487c87ee268e9310, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &264281925
 GameObject:
   m_ObjectHideFlags: 0
@@ -138,7 +180,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552395050
 GameObject:
@@ -223,7 +265,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050693152
 GameObject:
@@ -258,6 +300,7 @@ MonoBehaviour:
   elements:
   - {fileID: 4188567984015642, guid: 5f7f3363a42ea824297081c0928b311e, type: 2}
   - {fileID: 4188567984015642, guid: b7857199c0ed4c44fa802a52df545fa7, type: 2}
+  - {fileID: 4875013984341782, guid: 1bd56558717018f4a8bb48048e568aaa, type: 2}
 --- !u!4 &1050693154
 Transform:
   m_ObjectHideFlags: 0
@@ -269,7 +312,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1280381143
 GameObject:
@@ -373,7 +416,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1aaff008e0e164c428b0b230b63365ac, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.369}
   m_FlipX: 0
   m_FlipY: 0
 --- !u!4 &1280381148
@@ -399,6 +442,7 @@ GameObject:
   - component: {fileID: 1440019168}
   - component: {fileID: 1440019167}
   - component: {fileID: 1440019166}
+  - component: {fileID: 1440019169}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -465,5 +509,23 @@ Transform:
   m_Children:
   - {fileID: 1280381148}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1440019169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1440019165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6363bba448bf64e60a763433f9ddf81b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _threshold: 1.01
+  _softKnee: 0.5
+  _radius: 2.5
+  _intensity: 0.8
+  _highQuality: 1
+  _antiFlicker: 1
+  _shader: {fileID: 4800000, guid: 5a711a01011934ebcb58ef5ad52159d6, type: 3}
