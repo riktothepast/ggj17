@@ -10,9 +10,9 @@ public class GameManager : MonoBehaviour {
 	}
 	
 	void Update () {
-        if (GameObject.FindGameObjectsWithTag("Player").Length == 1)
+        if (GameObject.FindGameObjectsWithTag("Player").Length <= 0)
         {
-            Debug.Log("only one dolly left, game over");
+            Debug.Log("game over");
             StopTheGame();
         }
 	}

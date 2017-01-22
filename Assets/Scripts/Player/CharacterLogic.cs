@@ -253,7 +253,7 @@ public class CharacterLogic : MonoBehaviour
             if (rayHit)
             {
                 Vector2 objVelocity = rayHit.collider.GetComponent<Rigidbody2D>().velocity;
-                if (objVelocity.y > 0.1f)
+                if (objVelocity.y > 0.2f)
                 {
                     velocity.y = objVelocity.y;
                 }
