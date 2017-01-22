@@ -145,7 +145,7 @@ public class CharacterController2D : MonoBehaviour
 	public CharacterCollisionState2D collisionState = new CharacterCollisionState2D();
 	[HideInInspector][NonSerialized]
 	public Vector3 velocity;
-	public bool isGrounded { get { return collisionState.below; } }
+	public bool isGrounded { get { return collisionState.below; } set { this.collisionState.below = value; } }
 
 	private const float kSkinWidthFloatFudgeFactor = 0.001f;
 
