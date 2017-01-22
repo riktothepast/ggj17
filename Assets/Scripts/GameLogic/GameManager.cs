@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour {
             StopTheGame();
             Invoke("GameOver", 5);
         }
-        if (GameObject.FindGameObjectsWithTag("VampiresHearth").Length <= 0)
+        if (GameObject.FindGameObjectsWithTag("VampiresHearth").Length >= 0)
         {
             winCanvas.SetActive(true);
             Invoke("GameOver", 5);
