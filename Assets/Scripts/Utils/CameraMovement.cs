@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour {
     public bool moveCamera;
     public Vector2 mapSize;
     Vector2 cameraSize;
+    public SimpleScroll bgScripts;
 
 	void Awake () {
 		
@@ -27,5 +28,6 @@ public class CameraMovement : MonoBehaviour {
         {
             transform.position += Vector3.right * cameraSpeed * Time.deltaTime;
         }
+        bgScripts.MoveCamera(moveCamera);
     }
 }

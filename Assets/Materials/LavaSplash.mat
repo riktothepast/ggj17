@@ -128,7 +128,7 @@ Material:
       second: {r: 1, g: 1, b: 1, a: 1}
     - first:
         name: _EmissionColor
-      second: {r: 2.306, g: 1.2872438, b: 0.6273677, a: 1}
+      second: {r: 5, g: 2.7910752, b: 1.3602942, a: 1}
     - first:
         name: _TintColor
       second: {r: 0.75735295, g: 0.4385888, b: 0.29514492, a: 0.5}

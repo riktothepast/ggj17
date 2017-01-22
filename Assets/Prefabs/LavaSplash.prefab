@@ -21,9 +21,9 @@ GameObject:
   - component: {fileID: 4382972166209062}
   - component: {fileID: 198857929912014770}
   - component: {fileID: 199218585719179514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: LavaSplash
-  m_TagString: Untagged
+  m_TagString: InstaDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,7 +96,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1022462455
+  randomSeed: -1157687600
   InitialModule:
     serializedVersion: 3
     enabled: 1

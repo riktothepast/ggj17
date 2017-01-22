@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameManager : MonoBehaviour {
     public GameObject winCanvas;
@@ -14,11 +16,12 @@ public class GameManager : MonoBehaviour {
         {
             Debug.Log("game over");
             StopTheGame();
-
+            Invoke("GameOver", 5);
         }
-        if (GameObject.FindGameObjectsWithTag("Player").Length == )
+        if (GameObject.FindGameObjectsWithTag("VampiresHearth").Length <= 0)
         {
             winCanvas.SetActive(true);
+            Invoke("GameOver", 5);
         }
     }
 
@@ -32,5 +35,10 @@ public class GameManager : MonoBehaviour {
     void StopTheGame()
     {
         Camera.main.GetComponent<CameraMovement>().moveCamera = false;
+    }
+    
+    void GameOver()
+    {
+        SceneManager.LoadScene("endingScene");
     }
 }

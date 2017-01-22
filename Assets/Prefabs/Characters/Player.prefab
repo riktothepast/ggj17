@@ -217,6 +217,9 @@ MonoBehaviour:
   raysBegin: 2.5
   wallCheckRayDistance: 1
   rayDistance: 3
+  punchSound: {fileID: 8300000, guid: 3205ad9a65c7a874e97993425f8da089, type: 3}
+  jumpSound: {fileID: 8300000, guid: 11fe632a4ab0de74d857d612a424dc2f, type: 3}
+  dieSound: {fileID: 8300000, guid: 3243fa5e253e7f9419f5000834e98203, type: 3}
 --- !u!212 &212170973506948352
 SpriteRenderer:
   m_ObjectHideFlags: 1
