@@ -388,6 +388,8 @@ MonoBehaviour:
   assetsFileRange: {x: 1, y: 5}
   dollies: []
   mapSize: {x: 0, y: 0}
+  vampireHearth: {fileID: 1465034849638572, guid: 47798ff95d5fa674c8a528491a8fc1b0,
+    type: 2}
   elements:
   - {fileID: 4188567984015642, guid: 5f7f3363a42ea824297081c0928b311e, type: 2}
   - {fileID: 4188567984015642, guid: b7857199c0ed4c44fa802a52df545fa7, type: 2}

@@ -8,6 +8,7 @@ public class AssetLoader : MonoBehaviour
     public Vector2 assetsFileRange;
     public List<Vector3> dollies;
     public Vector2 mapSize;
+    public GameObject vampireHearth;
     public List<Transform> elements = new List<Transform>();
 
     void Start()
@@ -27,6 +28,10 @@ public class AssetLoader : MonoBehaviour
                 } else if (levelMatrix[y][x] == "e")
                 {
                     mapSize = position;
+                } else if (levelMatrix[y][x] == "h")
+                {
+                    GameObject go = Instantiate(vampireHearth, position, Quaternion.identity);
+                    go.transform.parent = this.GetComponent<Transform>();
                 } else
                 {
                     int index;
