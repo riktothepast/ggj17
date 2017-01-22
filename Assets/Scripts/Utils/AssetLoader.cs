@@ -5,14 +5,17 @@ using UnityEngine;
 public class AssetLoader : MonoBehaviour
 {
     public float scale;
-    public string assetsFile;
+    public Vector2 assetsFileRange;
     public List<Vector3> dollies;
     public Vector2 mapSize;
     public List<Transform> elements = new List<Transform>();
 
     void Start()
     {
-        string[][] levelMatrix = readFile(assetsFile);
+        string num = "" + Random.Range((int)assetsFileRange.x, (int)assetsFileRange.y);
+        string filename = "./level" + num + ".txt";
+        Debug.Log("Loading file " + filename + "....");
+        string[][] levelMatrix = readFile(filename);
         for (int y = 0; y < levelMatrix.Length; y++)
         {
             for (int x = 0; x < levelMatrix[y].Length; x++)
