@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SimpleScroll : MonoBehaviour {
 
@@ -8,6 +6,7 @@ public class SimpleScroll : MonoBehaviour {
 
     private Vector2 offset = Vector2.zero;
     private Material material;
+    public bool autoMovement = true;
 
     // Use this for initialization
     void Start()
@@ -17,11 +16,19 @@ public class SimpleScroll : MonoBehaviour {
         offset = material.GetTextureOffset("_MainTex");
     }
 
+    public void MoveCamera(bool value)
+    {
+        autoMovement = value;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!autoMovement)
+        {
+            return;
+        }
         offset += speed * Time.deltaTime;
-
         material.SetTextureOffset("_MainTex", offset);
     }
 }

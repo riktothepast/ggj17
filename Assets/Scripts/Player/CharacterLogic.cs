@@ -40,6 +40,7 @@ public class CharacterLogic : MonoBehaviour
     public float raysBegin;
     public float wallCheckRayDistance;
     public float rayDistance;
+    public AudioClip punchSound, jumpSound, dieSound;
 
     void Start()
     {
@@ -179,6 +180,7 @@ public class CharacterLogic : MonoBehaviour
             velocity.y = Mathf.Sqrt(2f * jumpHeight * -gravity);
             jumpsLeft++;
             jump = true;
+            AudioManager.Instance.PlaySound(jumpSound);
         }
     }
 
@@ -187,6 +189,7 @@ public class CharacterLogic : MonoBehaviour
         if (!isPunching && !hasBeenHit)
         {
             StartCoroutine(PunchLogic());
+            AudioManager.Instance.PlaySound(punchSound);
         }
     }
 
@@ -269,6 +272,7 @@ public class CharacterLogic : MonoBehaviour
     {
         if (hit.collider.CompareTag("InstaDeath"))
         {
+            AudioManager.Instance.PlaySound(dieSound);
             ParticlePooler.Instance.CreateFallingToLava(transform.position);
             Destroy(this.gameObject);
         } else if (hit.collider.CompareTag("VampiresHearth"))
@@ -293,6 +297,7 @@ public class CharacterLogic : MonoBehaviour
     void OnBecameInvisible()
     {
         Debug.Log("Dolly died");
+        AudioManager.Instance.PlaySound(dieSound);
         ParticlePooler.Instance.CreateOutOfScreen(transform.position);
         Destroy(this.gameObject);
     }
