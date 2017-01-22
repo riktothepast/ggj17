@@ -34,6 +34,12 @@ public class CharacterLogic : MonoBehaviour
     Vector2 facingDirection;
     public SpriteManager spriteManager;
     PowerStriker powerStriker;
+    [Header("BottoWalls")]
+    public LayerMask floorMask;
+    public int maxWallCheckRays;
+    public float raysBegin;
+    public float wallCheckRayDistance;
+    public float rayDistance;
 
     void Start()
     {
@@ -62,6 +68,7 @@ public class CharacterLogic : MonoBehaviour
             return;
         // grab our current _velocity to use as a base for all calculations
         velocity = characterController.velocity;
+        CastBottomWalls();
         if (hasBeenHit)
             return;
         if (characterController.isGrounded)
@@ -185,6 +192,7 @@ public class CharacterLogic : MonoBehaviour
     IEnumerator PunchLogic()
     {
         isPunching = true;
+        arm.GetComponent<Collider2D>().enabled = true;
         float currentTime = 0f;
         Vector2 direction = aimingDirection.normalized;
         while (currentTime <= attackTime)
@@ -196,6 +204,7 @@ public class CharacterLogic : MonoBehaviour
             currentTime += Time.deltaTime;
         }
         arm.transform.localPosition = Vector2.zero;
+        arm.GetComponent<Collider2D>().enabled = false;
         powerStriker.ResetPosition();
         isPunching = false;
     }
@@ -215,6 +224,7 @@ public class CharacterLogic : MonoBehaviour
         {
             velocity = characterController.velocity;
             velocity = Vector2.MoveTowards(velocity, direction * force, Time.deltaTime * attackDegradation);
+            CastBottomWalls();
             GravityAndMovement(false);
             force -= Time.deltaTime * attackDegradation;
             yield return playerYield;
@@ -223,12 +233,35 @@ public class CharacterLogic : MonoBehaviour
         hasBeenHit = false;
     }
 
+    void CastBottomWalls()
+    {
+        var isGoingRight = normalizedHorizontalSpeed > 0;
+        var rayDirection = Vector2.down;
+        var rayPosition = new Vector2(transform.position.x, 0);
+        float initialPos = transform.position.x + raysBegin;
+
+        for (var i = 1; i < maxWallCheckRays; i++)
+        {
+            var ray = new Vector2(initialPos - i * wallCheckRayDistance, transform.position.y);
+            var rayHit = Physics2D.Raycast(ray, rayDirection, rayDistance, floorMask);
+            if (rayHit)
+            {
+                Vector2 objVelocity = rayHit.collider.GetComponent<Rigidbody2D>().velocity;
+                if (objVelocity.y > 0.1f)
+                {
+                    velocity.y = objVelocity.y;
+                }
+            }
+            Debug.DrawRay(ray, rayDirection * rayDistance, Color.blue);
+        }
+    }
+
     #region Event Listeners
 
     public void onControllerCollider(RaycastHit2D hit)
     {
-    }
 
+    }
 
     public void onTriggerEnterEvent(Collider2D col)
     {
