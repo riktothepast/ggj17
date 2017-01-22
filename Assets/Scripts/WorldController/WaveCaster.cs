@@ -7,7 +7,7 @@ public class WaveCaster : MonoBehaviour
     public float thrust;
     public float amplitude;
     public float frequency;
-    private int radius = 200;
+    private int radius = 40;
     private Rigidbody2D rb;
     public LayerMask mask;
 
@@ -18,7 +18,6 @@ public class WaveCaster : MonoBehaviour
 
     void OnMouseDown()
     {
-        Debug.Log("onMouseDown!!!!!");
         Vector3 center = rb.transform.position;
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(center, radius, mask);
         int i = 0;
