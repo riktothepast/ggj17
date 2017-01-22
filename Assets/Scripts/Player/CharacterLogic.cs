@@ -256,6 +256,7 @@ public class CharacterLogic : MonoBehaviour
                 if (objVelocity.y > 0.2f)
                 {
                     velocity.y = objVelocity.y;
+                    characterController.isGrounded = true;
                 }
             }
             Debug.DrawRay(ray, rayDirection * rayDistance, Color.blue);
@@ -268,6 +269,7 @@ public class CharacterLogic : MonoBehaviour
     {
         if (hit.collider.CompareTag("InstaDeath"))
         {
+            ParticlePooler.Instance.CreateFallingToLava(transform.position);
             Destroy(this.gameObject);
         }
     }
