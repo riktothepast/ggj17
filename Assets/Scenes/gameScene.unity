@@ -262,6 +262,7 @@ MonoBehaviour:
   - {fileID: 4188567984015642, guid: b7857199c0ed4c44fa802a52df545fa7, type: 2}
   - {fileID: 4875013984341782, guid: 1bd56558717018f4a8bb48048e568aaa, type: 2}
   - {fileID: 4280002888108412, guid: ca67f691e291db845bd47855d1eaa32a, type: 2}
+  - {fileID: 4013403649769824, guid: 2e69438dc95fbb342bba38a96500d7c1, type: 2}
 --- !u!4 &1050693154
 Transform:
   m_ObjectHideFlags: 0
@@ -422,7 +423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5b8ab27afae5fa44bad2dd45f720f50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraSpeed: 50
+  cameraSpeed: 20
   pixelsPerUnit: 20
   moveCamera: 0
   mapSize: {x: 0, y: 0}
