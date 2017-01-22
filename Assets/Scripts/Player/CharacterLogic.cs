@@ -269,6 +269,7 @@ public class CharacterLogic : MonoBehaviour
     {
         if (hit.collider.CompareTag("InstaDeath"))
         {
+            ParticlePooler.Instance.CreateFallingToLava(transform.position);
             Destroy(this.gameObject);
         }
     }
