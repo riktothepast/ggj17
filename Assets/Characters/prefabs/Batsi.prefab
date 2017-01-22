@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 65091337437996896}
   - component: {fileID: 114653758314083632}
   - component: {fileID: 114472951314562832}
+  - component: {fileID: 114720454828573624}
   m_Layer: 0
   m_Name: Batsi
   m_TagString: Untagged
@@ -744,6 +745,23 @@ MonoBehaviour:
   thrust: 10
   amplitude: 2
   frequency: 2
+  mask:
+    serializedVersion: 2
+    m_Bits: 256
+--- !u!114 &114720454828573624
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1855613035544946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cec9ddd7ec7493419569036d319ceaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrust: 50
+  amplitude: 5
+  frequency: 5
   mask:
     serializedVersion: 2
     m_Bits: 256

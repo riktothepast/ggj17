@@ -8,12 +8,12 @@ public class WaveCaster : MonoBehaviour
     public float amplitude;
     public float frequency;
     private int radius = 40;
-    private Rigidbody2D rb;
+    private Rigidbody rb;
     public LayerMask mask;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody>();
     }
 
     void OnMouseDown()
