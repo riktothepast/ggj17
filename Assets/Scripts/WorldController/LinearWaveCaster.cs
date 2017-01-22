@@ -23,7 +23,6 @@ public class LinearWaveCaster : MonoBehaviour
 
         if (hit.collider != null)
         {
-            Debug.Log("HIT SOMETHING");
             Rigidbody2D rbody = hit.collider.GetComponent<Rigidbody2D>();
             if (rbody)
             {
