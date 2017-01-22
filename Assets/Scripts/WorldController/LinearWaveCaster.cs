@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class LinearWaveCaster : MonoBehaviour
 {
@@ -8,11 +6,14 @@ public class LinearWaveCaster : MonoBehaviour
     private Rigidbody2D rb;
     public LayerMask mask;
     private Vector3 lookDirection;
+    SoundLoader loader;
+    bool playSound;
 
     void Start()
     {
         lookDirection = Vector3.zero;
         rb = GetComponent<Rigidbody2D>();
+        loader = GetComponent<SoundLoader>();
     }
 
     void Update()
@@ -35,6 +36,11 @@ public class LinearWaveCaster : MonoBehaviour
 
         if (onScreen)
         {
+            if (!playSound)
+            {
+                loader.PlaySound();
+                playSound = true;
+            }
             transform.Translate(-1, 0, 0);
         }
     }

@@ -289,6 +289,7 @@ public class CharacterLogic : MonoBehaviour
     void OnBecameInvisible()
     {
         Debug.Log("Dolly died");
+        ParticlePooler.Instance.CreateOutOfScreen(transform.position);
         Destroy(this.gameObject);
     }
 }
