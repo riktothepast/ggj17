@@ -271,6 +271,10 @@ public class CharacterLogic : MonoBehaviour
         {
             ParticlePooler.Instance.CreateFallingToLava(transform.position);
             Destroy(this.gameObject);
+        } else if (hit.collider.CompareTag("VampiresHearth"))
+        {
+            Destroy(hit.transform.gameObject);
+            Debug.Log("dolli won");
         }
     }
 
