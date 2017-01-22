@@ -27,7 +27,9 @@ public class CameraMovement : MonoBehaviour {
         if (moveCamera && (transform.position.x + cameraSize.x < mapSize.x))
         {
             transform.position += Vector3.right * cameraSpeed * Time.deltaTime;
+            bgScripts.MoveCamera(true);
+        } else {
+            bgScripts.MoveCamera(false);
         }
-        bgScripts.MoveCamera(moveCamera);
     }
 }
