@@ -385,7 +385,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 5
-  assetsFile: ./level1.txt
+  assetsFileRange: {x: 1, y: 4}
   dollies: []
   mapSize: {x: 0, y: 0}
   vampireHearth: {fileID: 1465034849638572, guid: 47798ff95d5fa674c8a528491a8fc1b0,
